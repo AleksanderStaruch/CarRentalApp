@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APBDProject", "APBDProject\APBDProject.csproj", "{C260BB19-A4D8-4383-8A51-CD7952933885}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C260BB19-A4D8-4383-8A51-CD7952933885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C260BB19-A4D8-4383-8A51-CD7952933885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C260BB19-A4D8-4383-8A51-CD7952933885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C260BB19-A4D8-4383-8A51-CD7952933885}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1F085B1-0CF6-4FF4-BE8A-C3E0F8CA7FED}
+	EndGlobalSection
+EndGlobal
