@@ -15,20 +15,13 @@ using System.Windows.Shapes;
 namespace APBDProject
 {
     /// <summary>
-    /// Interaction logic for Data.xaml
+    /// Interaction logic for Vehicle.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Vehicle : Window
     {
-        string login;
-        string pass;
-        public MainWindow(string login,string pass)
+        public Vehicle()
         {
             InitializeComponent();
-            this.login = login;
-            this.pass = pass;
-
-
-
         }
     }
 }

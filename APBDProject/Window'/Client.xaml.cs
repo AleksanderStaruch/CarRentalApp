@@ -15,20 +15,13 @@ using System.Windows.Shapes;
 namespace APBDProject
 {
     /// <summary>
-    /// Interaction logic for Data.xaml
+    /// Interaction logic for Client.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Client : Window
     {
-        string login;
-        string pass;
-        public MainWindow(string login,string pass)
+        public Client()
         {
             InitializeComponent();
-            this.login = login;
-            this.pass = pass;
-
-
-
         }
     }
 }
