@@ -6,7 +6,7 @@ namespace APBDProject.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Rent")]
+    [Table("project.Rent")]
     public partial class Rent
     {
         [Key]

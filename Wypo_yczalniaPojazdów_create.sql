@@ -1,7 +1,8 @@
+CREATE SCHEMA project;
 
-CREATE SCHEMA projekt;
+GO
 
-CREATE TABLE Client (
+CREATE TABLE [project].[Client] (
     Cid int  NOT NULL,
     FirstName varchar(20)  NOT NULL,
     LastName varchar(20)  NOT NULL,
@@ -12,14 +13,14 @@ CREATE TABLE Client (
 );
 
 -- Table: FeulType
-CREATE TABLE FeulType (
+CREATE TABLE [project].[FeulType] (
     Fid int  NOT NULL,
     Feul varchar(20)  NOT NULL,
     CONSTRAINT FeulType_pk PRIMARY KEY  (Fid)
 );
 
 -- Table: Rent
-CREATE TABLE Rent (
+CREATE TABLE [project].[Rent] (
     Rid int  NOT NULL,
     DateOfRental date  NOT NULL,
     DateOfReturn date  NULL,
@@ -30,14 +31,14 @@ CREATE TABLE Rent (
 );
 
 -- Table: Type
-CREATE TABLE Type (
+CREATE TABLE [project].[Type] (
     Tid int  NOT NULL,
     Type varchar(20)  NOT NULL,
     CONSTRAINT Type_pk PRIMARY KEY  (Tid)
 );
 
 -- Table: User
-CREATE TABLE "User" (
+CREATE TABLE [project].["User"] (
     Uid int  NOT NULL,
     Login varchar(20)  NOT NULL,
     Pass varchar(20)  NOT NULL,
@@ -46,14 +47,14 @@ CREATE TABLE "User" (
 );
 
 -- Table: UserStatus
-CREATE TABLE UserStatus (
+CREATE TABLE [project].[UserStatus] (
     USid int  NOT NULL,
     Status varchar(50)  NOT NULL,
     CONSTRAINT UserStatus_pk PRIMARY KEY  (USid)
 );
 
 -- Table: Vehicle
-CREATE TABLE Vehicle (
+CREATE TABLE [project].[Vehicle] (
     Vid int  NOT NULL,
     VIN int  NOT NULL,
     Type_Id int  NOT NULL,

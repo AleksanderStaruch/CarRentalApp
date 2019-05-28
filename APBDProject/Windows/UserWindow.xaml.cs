@@ -11,38 +11,41 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace APBDProject
+namespace APBDProject.Windows
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UserWindow : Window
     {
-        public MainWindow()
+        public UserWindow(string text)
         {
             InitializeComponent();
+            Text.Content = text;
         }
 
-        private void Log_Click(object sender, RoutedEventArgs e)
+        private void Enter_Click(object sender, RoutedEventArgs e)
         {
-            var l = Login.Text;
-            var p = Pass.Password;
-
-            DB db = new DB();
-            if (db.CheckUserData(l, p))
+            if (ConPass.Password == Pass.Password)
             {
-                MainWindow window = new MainWindow(l);
-                window.Show();
+                DB db = new DB();
+                db.AddUser();
+
+
                 Close();
             }
             else
             {
-                MessageBox.Show("Bad login or password", "Error", MessageBoxButton.OK);
+                MessageBox.Show("Password != ConfirmPassword", "Error", MessageBoxButton.OK);
             }
         }
+
+
+
+
+
 
 
     }

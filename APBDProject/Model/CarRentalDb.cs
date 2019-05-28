@@ -8,7 +8,7 @@ namespace APBDProject.Model
     public partial class CarRentalDb : DbContext
     {
         public CarRentalDb()
-            : base("name=CarRentalDb")
+            : base("name=CarRentalDb1")
         {
         }
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APBDProject"
         mc:Ignorable="d"
-        Title="Login window" Height="175" Width="300">
+        Title="Login window" Height="175" Width="320" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -23,7 +23,7 @@
         <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="24" Background="LightGray"  Margin="5" Padding="30 0 30 0" HorizontalContentAlignment="Center">Login to use this app</Label>
         
         <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Login: </Label>
-        <Label Grid.Column="0" Grid.Row="2" >Password: </Label>
+        <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Password: </Label>
 
         <TextBox x:Name="Login" Grid.Column="1" Grid.Row="1" BorderBrush="Black"  Margin="5" ></TextBox>
         <PasswordBox x:Name="Pass" Grid.Column="1" Grid.Row="2" BorderBrush="Black" Margin="5" ></PasswordBox>

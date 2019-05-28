@@ -29,7 +29,17 @@ namespace APBDProject.DAL
 
         }
 
+        public List<string> GetUserStatuses()
+        {
+            var r = carRental.UserStatus.Select(s => s.Status).ToList();
 
+            return r;
+        }
+
+        public void AddUser()
+        {
+
+        }
 
 
 

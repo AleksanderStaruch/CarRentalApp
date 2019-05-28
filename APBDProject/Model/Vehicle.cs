@@ -6,7 +6,7 @@ namespace APBDProject.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Vehicle")]
+    [Table("project.Vehicle")]
     public partial class Vehicle
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

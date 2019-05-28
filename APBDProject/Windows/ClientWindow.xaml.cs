@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace APBDProject
+namespace APBDProject.Windows
 {
     /// <summary>
-    /// Interaction logic for Vehicle.xaml
+    /// Interaction logic for ClientWindow.xaml
     /// </summary>
-    public partial class Vehicle : Window
+    public partial class ClientWindow : Window
     {
-        public Vehicle()
+        public ClientWindow()
         {
             InitializeComponent();
         }

@@ -11,14 +11,16 @@
         <Menu DockPanel.Dock="Top" Background="White">
             <MenuItem Header="File">
                 <MenuItem Header="Lists">
-                    <MenuItem x:Name="UserList" Header="User list"/>
+                    <MenuItem x:Name="UserList" Header="User list" />
                     <MenuItem x:Name="VehicleList" Header="Vehicle list"/>
                     <MenuItem x:Name="ClientList" Header="Client list"/>
+                    <MenuItem x:Name="RentList" Header="Rent list"/>
                 </MenuItem>
                 <MenuItem Header="Add">
-                    <MenuItem x:Name="AddUser" Header="User"/>
+                    <MenuItem Header="User" />
                     <MenuItem x:Name="AddVehicle" Header="Vehicle"/>
                     <MenuItem x:Name="AddClient" Header="Client"/>
+                    <MenuItem x:Name="AddRent" Header="Rent"/>
                 </MenuItem>   
             </MenuItem>
         </Menu>

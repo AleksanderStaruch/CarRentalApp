@@ -1,4 +1,6 @@
-﻿using System;
+﻿using APBDProject.DAL;
+using APBDProject.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +22,17 @@ namespace APBDProject
     public partial class MainWindow : Window
     {
         string login;
-        string pass;
-        public MainWindow(string login,string pass)
+        public MainWindow(string login)
         {
             InitializeComponent();
             this.login = login;
-            this.pass = pass;
-
-
-
         }
+
+        //private void AddUser_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var window = new UserWindow("Register user");
+        //}
+
+
     }
 }
