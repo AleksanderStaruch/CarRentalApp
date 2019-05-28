@@ -1,4 +1,4 @@
-﻿<Window x:Class="APBDProject.Data"
+﻿<Window x:Class="APBDProject.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,16 +11,16 @@
         <Menu DockPanel.Dock="Top" Background="White">
             <MenuItem Header="File">
                 <MenuItem Header="Lists">
-                    <MenuItem x:Name="UserList" Header="User list" />
-                    <MenuItem x:Name="VehicleList" Header="Vehicle list"/>
-                    <MenuItem x:Name="ClientList" Header="Client list"/>
-                    <MenuItem x:Name="RentList" Header="Rent list"/>
+                    <MenuItem x:Name="UserList" Header="User list" Click="UserList_Click"/>
+                    <MenuItem x:Name="VehicleList" Header="Vehicle list" Click="VehicleList_Click"/>
+                    <MenuItem x:Name="ClientList" Header="Client list" Click="ClientList_Click"/>
+                    <MenuItem x:Name="RentList" Header="Rent list" Click="RentList_Click"/>
                 </MenuItem>
                 <MenuItem Header="Add">
-                    <MenuItem Header="User" />
-                    <MenuItem x:Name="AddVehicle" Header="Vehicle"/>
-                    <MenuItem x:Name="AddClient" Header="Client"/>
-                    <MenuItem x:Name="AddRent" Header="Rent"/>
+                    <MenuItem x:Name="AddUser" Header="User" Click="AddUser_Click"/>
+                    <MenuItem x:Name="AddVehicle" Header="Vehicle" Click="AddVehicle_Click"/>
+                    <MenuItem x:Name="AddClient" Header="Client" Click="AddClient_Click"/>
+                    <MenuItem x:Name="AddRent" Header="Rent" Click="AddRent_Click"/>
                 </MenuItem>   
             </MenuItem>
         </Menu>

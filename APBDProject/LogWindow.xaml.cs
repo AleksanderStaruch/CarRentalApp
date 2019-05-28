@@ -16,12 +16,9 @@ using System.Windows.Shapes;
 
 namespace APBDProject
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class LogWindow : Window
     {
-        public MainWindow()
+        public LogWindow()
         {
             InitializeComponent();
         }
@@ -29,10 +26,10 @@ namespace APBDProject
         private void Log_Click(object sender, RoutedEventArgs e)
         {
             var l = Login.Text;
-            var p = Pass.Password;
-
+            var p = Pass.Password.ToString();
+ 
             DB db = new DB();
-            if (db.CheckUserData(l, p))
+            if (db.CheckUserData(l,p))
             {
                 MainWindow window = new MainWindow(l);
                 window.Show();

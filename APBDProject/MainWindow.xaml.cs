@@ -28,6 +28,46 @@ namespace APBDProject
             this.login = login;
         }
 
+        private void AddUser_Click(object sender, RoutedEventArgs e)
+        {
+            var adduser = new UserWindow("Register");
+        }
+
+        private void AddVehicle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddRent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void VehicleList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ClientList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RentList_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         //private void AddUser_Click(object sender, RoutedEventArgs e)
         //{
         //    var window = new UserWindow("Register user");
