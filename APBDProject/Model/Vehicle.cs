@@ -16,10 +16,11 @@ namespace APBDProject.Model
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Vid { get; set; }
 
-        public int VIN { get; set; }
+        [Required]
+        [StringLength(17)]
+        public string VIN { get; set; }
 
         public int Type_Id { get; set; }
 

@@ -51,7 +51,7 @@ namespace APBDProject.Model
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Type>()
-                .Property(e => e.Type1)
+                .Property(e => e.Name)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Type>()

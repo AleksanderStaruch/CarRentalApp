@@ -9,14 +9,7 @@ namespace APBDProject.Model
     [Table("project.UserStatus")]
     public partial class UserStatus
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserStatus()
-        {
-            User = new HashSet<User>();
-        }
-
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int USid { get; set; }
 
         [Required]

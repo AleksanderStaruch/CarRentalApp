@@ -1,4 +1,4 @@
-Drop Table [project].[Rent];
+﻿Drop Table [project].[Rent];
 Drop Table [project].[Vehicle];
 Drop Table [project].[User];
 Drop Table [project].[UserStatus];
@@ -62,7 +62,7 @@ CREATE TABLE [project].[UserStatus] (
 -- Table: Vehicle
 CREATE TABLE [project].[Vehicle] (
     Vid int  NOT NULL IDENTITY,
-    VIN int  NOT NULL UNIQUE,
+    VIN varchar(17)  NOT NULL UNIQUE,
     Type_Id int  NOT NULL,
     Brand varchar(20)  NOT NULL,
     Model varchar(20)  NOT NULL,
@@ -116,8 +116,22 @@ INSERT INTO [project].[User] values ('Jan','jan1',2);
 INSERT INTO [project].[User] values ('adam123','haslo',3);
 INSERT INTO [project].[User] values ('nightwing10036','batman',3);
 
+INSERT INTO [project].[FeulType] values ('Benzyna');
+INSERT INTO [project].[FeulType] values ('Diesel');
+INSERT INTO [project].[FeulType] values ('LPG');
+INSERT INTO [project].[FeulType] values ('Elektryczny');
+
+INSERT INTO [project].[Type] values ('Samochod osobowy');
+INSERT INTO [project].[Type] values ('Motocykl/Skuter');
+INSERT INTO [project].[Type] values ('Dostawczy/Ciężarowy');
+INSERT INTO [project].[Type] values ('Kamper');
+INSERT INTO [project].[Type] values ('Autobus');
+
+
 select * from [project].[UserStatus];
 select * from [project].[User] where Pass like 'admin'
+
+
 
 -- End of file.
 

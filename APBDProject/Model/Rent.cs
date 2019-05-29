@@ -10,7 +10,6 @@ namespace APBDProject.Model
     public partial class Rent
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Rid { get; set; }
 
         [Column(TypeName = "date")]

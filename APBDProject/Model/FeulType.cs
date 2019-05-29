@@ -16,7 +16,6 @@ namespace APBDProject.Model
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Fid { get; set; }
 
         [Required]

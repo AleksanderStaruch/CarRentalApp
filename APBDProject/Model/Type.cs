@@ -16,13 +16,11 @@ namespace APBDProject.Model
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Tid { get; set; }
 
-        [Column("Type")]
         [Required]
         [StringLength(20)]
-        public string Type1 { get; set; }
+        public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vehicle> Vehicle { get; set; }

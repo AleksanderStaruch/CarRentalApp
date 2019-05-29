@@ -25,74 +25,29 @@
             </MenuItem>
         </Menu>
 
-        <!--<Grid DockPanel.Dock="Bottom" >
+        <Grid DockPanel.Dock="Bottom" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name="Count"  Grid.Row="0" >Wybrałes 0 studentów</Label>
-
-            <Grid Grid.Row="1" HorizontalAlignment="Right">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <Button x:Name="Add" Grid.Column="0" Margin="5" Padding="30 0 30 0" Click="Add_Click">Dodaj</Button>
-                <Button x:Name="Delete" Grid.Column="1" Margin="5" Padding="30 0 30 0" Click="Delete_Click">Usuń</Button>
-
-            </Grid>
+            <Label x:Name="Count" Grid.Row="0" >Wybrałes 0</Label>
+            <Button x:Name="Delete" Grid.Column="1" Margin="5" Padding="30 0 30 0" HorizontalAlignment="Right" Click="Delete_Click">Usuń</Button>
         </Grid>
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" FontSize="30" Content="Lista Studentów"/>
+            <Label x:Name="ListName" Grid.Row="0" FontSize="20" VerticalContentAlignment="Bottom">List</Label>
+            <Label x:Name="Welcome" Grid.Row="0" FontSize="20" HorizontalAlignment="Right" VerticalContentAlignment="Top">Welcome </Label>
 
-            <DataGrid x:Name="DataGrid"  Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" MouseDoubleClick="DataGrid_MouseDoubleClick" SelectionChanged="DataGrid_SelectionChanged">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Width="*" Header="Nazwisko" Binding="{Binding LastName}">
-                        <DataGridTextColumn.HeaderStyle>
-                            <Style TargetType="DataGridColumnHeader">
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            </Style>
-                        </DataGridTextColumn.HeaderStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="*" Header="Imie" Binding="{Binding FirstName}">
-                        <DataGridTextColumn.HeaderStyle>
-                            <Style TargetType="DataGridColumnHeader">
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            </Style>
-                        </DataGridTextColumn.HeaderStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="2*" Header="Numer indeksu" Binding="{Binding IndexNumber}">
-                        <DataGridTextColumn.HeaderStyle>
-                            <Style TargetType="DataGridColumnHeader">
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            </Style>
-                        </DataGridTextColumn.HeaderStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="2*" Header="Adres" Binding="{Binding Address}">
-                        <DataGridTextColumn.HeaderStyle>
-                            <Style TargetType="DataGridColumnHeader">
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            </Style>
-                        </DataGridTextColumn.HeaderStyle>
-                    </DataGridTextColumn>
-                    <DataGridTextColumn Width="4*" Header="Studia" Binding="{Binding Study.Name}">
-                        <DataGridTextColumn.HeaderStyle>
-                            <Style TargetType="DataGridColumnHeader">
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            </Style>
-                        </DataGridTextColumn.HeaderStyle>
-                    </DataGridTextColumn>
-                </DataGrid.Columns>
+            <DataGrid x:Name="DataGrid"  Grid.Row="1" CanUserAddRows="False" MouseDoubleClick="DataGrid_MouseDoubleClick" SelectionChanged="DataGrid_SelectionChanged">
+                
             </DataGrid>
-        </Grid>-->
+        </Grid>
 
     </DockPanel>
 </Window>
