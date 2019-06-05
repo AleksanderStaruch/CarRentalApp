@@ -169,19 +169,20 @@ namespace APBDProject.Windows
         {
             if (Check())
             {
-                Int32.TryParse(Text4.Text, out int n1);
-                Int32.TryParse(Text5.Text, out int n2);
-                Int32.TryParse(Text5.Text, out int n3);
+                Int64.TryParse(Text5.Text, out var n1);
+                Int64.TryParse(Text6.Text, out var n2);
+                Int64.TryParse(Text7.Text, out var n3);
+                MessageBox.Show(n1+"");
                 vehicle.VIN=Text1.Text;
                 vehicle.Type_Id = GetTypeId();
                 vehicle.Brand = Text2.Text;
                 vehicle.Model = Text3.Text;
                 vehicle.Color = Text4.Text;
-                vehicle.MakeYear = n1;
+                vehicle.MakeYear = (int)n1;
                 vehicle.FeulType_Id = GetFeulTypesId();
-                vehicle.PriceByDay = n2;
-                vehicle.Mileage = n3;
-                vehicle.IfRent=0;
+                vehicle.PriceByDay = (int)n2;
+                vehicle.Mileage = (int)n3;
+                vehicle.IfRent="nie";
 
                 DB db = new DB();
                 db.AddVehicle(vehicle);

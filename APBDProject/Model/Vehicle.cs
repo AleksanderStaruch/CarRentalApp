@@ -44,7 +44,9 @@ namespace APBDProject.Model
 
         public int Mileage { get; set; }
 
-        public int IfRent { get; set; }
+        [Required]
+        [StringLength(3)]
+        public string IfRent { get; set; }
 
         public virtual FeulType FeulType { get; set; }
 

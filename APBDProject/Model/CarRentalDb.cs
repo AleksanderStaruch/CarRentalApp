@@ -8,7 +8,7 @@ namespace APBDProject.Model
     public partial class CarRentalDb : DbContext
     {
         public CarRentalDb()
-            : base("name=CarRentalDb")
+            : base("name=CarRentalDb2")
         {
         }
 
@@ -85,6 +85,10 @@ namespace APBDProject.Model
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Vehicle>()
+                .Property(e => e.VIN)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Vehicle>()
                 .Property(e => e.Brand)
                 .IsUnicode(false);
 
@@ -94,6 +98,10 @@ namespace APBDProject.Model
 
             modelBuilder.Entity<Vehicle>()
                 .Property(e => e.Color)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Vehicle>()
+                .Property(e => e.IfRent)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Vehicle>()

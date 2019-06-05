@@ -9,6 +9,12 @@ namespace APBDProject.Model
     [Table("project.User")]
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            Rent = new HashSet<Rent>();
+        }
+
         [Key]
         public int Uid { get; set; }
 
@@ -25,7 +31,6 @@ namespace APBDProject.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rent> Rent { get; set; }
 
-        [ForeignKey("UserStatus_Id")]
         public virtual UserStatus UserStatus { get; set; }
     }
 }
