@@ -1,4 +1,5 @@
 ﻿using APBDProject.DAL;
+using APBDProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,17 @@ namespace APBDProject
             InitializeComponent();
         }
 
+        private User GetUser(string login)
+        {
+            var list = new DB().GetUsers();
+
+            var r = (from s in list
+                     where s.Login == login
+                     select s).First();
+
+            return r;
+        }
+
         private void Log_Click(object sender, RoutedEventArgs e)
         {
             var l = Login.Text;
@@ -31,7 +43,7 @@ namespace APBDProject
             DB db = new DB();
             if (db.CheckUserData(l,p))
             {
-                MainWindow window = new MainWindow(l);
+                MainWindow window = new MainWindow(GetUser(l));
                 window.Show();
                 Close();
             }

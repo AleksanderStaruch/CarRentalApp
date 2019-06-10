@@ -23,6 +23,9 @@
                     <MenuItem x:Name="AddRent" Header="Rent" Click="AddRent_Click"/>
                 </MenuItem>   
             </MenuItem>
+            <MenuItem Header="My profile">
+                <MenuItem x:Name="ChangePassword" Header="Change password" Click="ChangePassword_Click"/>
+            </MenuItem>
         </Menu>
 
         <Grid DockPanel.Dock="Bottom" >
@@ -31,7 +34,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name="Count" Grid.Row="0" >Wybrałes 0</Label>
+            <Label x:Name="Count" Grid.Row="0" >You choose 0</Label>
             <Button x:Name="Delete" Grid.Column="1" Margin="5" Padding="30 0 30 0" HorizontalAlignment="Right" Click="Delete_Click">Usuń</Button>
         </Grid>
 
@@ -44,8 +47,41 @@
             <Label x:Name="ListName" Grid.Row="0" FontSize="20" VerticalContentAlignment="Bottom">List</Label>
             <Label x:Name="Welcome" Grid.Row="0" FontSize="20" HorizontalAlignment="Right" VerticalContentAlignment="Top">Welcome </Label>
 
-            <DataGrid x:Name="DataGrid"  Grid.Row="1" CanUserAddRows="False" MouseDoubleClick="DataGrid_MouseDoubleClick" SelectionChanged="DataGrid_SelectionChanged">
-                
+            <DataGrid x:Name="Users_DataGrid"  Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" SelectionChanged="Users_DataGrid_SelectionChanged" Visibility="Hidden">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="Login" Binding="{Binding Login}"/>
+                    <DataGridTextColumn Width="*" Header="Status" Binding="{Binding UserStatus.Status}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+            <DataGrid x:Name="Vehicles_DataGrid"  Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" MouseDoubleClick="Vehicles_DataGrid_MouseDoubleClick" SelectionChanged="Vehicles_DataGrid_SelectionChanged" Visibility="Hidden">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="Brand" Binding="{Binding Brand}"/>
+                    <DataGridTextColumn Width="*" Header="Model" Binding="{Binding Model}"/>
+                    <DataGridTextColumn Width="*" Header="Type" Binding="{Binding Type.Name}"/>
+                    <DataGridTextColumn Width="*" Header="Feul Type" Binding="{Binding FeulType.Feul}"/>
+                    <DataGridTextColumn Width="*" Header="Color" Binding="{Binding Color}"/>
+                    <DataGridTextColumn Width="*" Header="MakeYear" Binding="{Binding MakeYear}"/>
+                    <DataGridTextColumn Width="*" Header="Price By Day" Binding="{Binding PriceByDay}"/>
+                    <DataGridTextColumn Width="*" Header="Mileage" Binding="{Binding Mileage}"/>
+                    <DataGridTextColumn Width="*" Header="Rent" Binding="{Binding IfRent}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+            <DataGrid x:Name="Clients_DataGrid"  Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" MouseDoubleClick="Clients_DataGrid_MouseDoubleClick" SelectionChanged="Clients_DataGrid_SelectionChanged" Visibility="Hidden">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="First Name" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Width="*" Header="Last Name" Binding="{Binding LastName}"/>
+                    <DataGridTextColumn Width="*" Header="PESEL" Binding="{Binding PESEL}"/>
+                    <DataGridTextColumn Width="*" Header="Phone Number" Binding="{Binding PhoneNumber}"/>
+                    <DataGridTextColumn Width="*" Header="Address" Binding="{Binding Address}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            
+            <DataGrid x:Name="Rents_DataGrid"  Grid.Row="1" CanUserAddRows="False" AutoGenerateColumns="False" MouseDoubleClick="Rents_DataGrid_MouseDoubleClick" SelectionChanged="Rents_DataGrid_SelectionChanged" Visibility="Hidden">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Header="" Binding="{Binding }"/>
+                </DataGrid.Columns>
             </DataGrid>
         </Grid>
 

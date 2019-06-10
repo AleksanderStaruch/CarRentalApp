@@ -20,144 +20,199 @@ namespace APBDProject
 {
     public partial class MainWindow : Window
     {
-        //ObservableCollection<?> list;
         string what = "";
-        Dictionary<string, int> hash = new Dictionary<string, int>();
-        public MainWindow(string login)
+        User me;
+        public MainWindow(User me)
         {
             InitializeComponent();
-            Welcome.Content = "Welcome "+login;
+            this.me = me;
+            Welcome.Content = "Welcome "+me.Login;
         }
 
+        //add new 
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
             var user = new User();
-            var adduser = new UserWindow("Register",user);
-            adduser.ShowDialog();
-        }
+            var add = new UserWindow("Register",user);
+            add.ShowDialog();
 
+            what = "users";
+            SetDataGrid();
+        }
         private void AddVehicle_Click(object sender, RoutedEventArgs e)
         {
             var vehicle = new Vehicle();
-            var adduser = new VehicleWindow("Add new vehicle",vehicle);
-            adduser.ShowDialog();
-        }
+            var add = new VehicleWindow("Add new vehicle",vehicle);
+            add.ShowDialog();
 
+            what = "vehicles";
+            SetDataGrid();
+        }
         private void AddClient_Click(object sender, RoutedEventArgs e)
         {
             var client = new Client();
-            var adduser = new ClientWindow("Add new client",client);
-            adduser.ShowDialog();
-        }
+            var add = new ClientWindow("Add new client",client);
+            add.ShowDialog();
 
+            what = "clients";
+            SetDataGrid();
+        }
         private void AddRent_Click(object sender, RoutedEventArgs e)
         {
             var rent = new Rent();
-            var adduser = new RentWindow("Create new rent",rent);
-            adduser.ShowDialog();
+            var add = new RentWindow("Create new rent",rent);
+            add.ShowDialog();
         }
 
+
+        //show list, "ilośc zaznaczonych wierszy"
         private void UserList_Click(object sender, RoutedEventArgs e)
         {
             what = "users";
             ListName.Content = "List of " + what;
             SetDataGrid();
         }
-
         private void VehicleList_Click(object sender, RoutedEventArgs e)
         {
             what = "vehicles";
             ListName.Content = "List of " + what;
             SetDataGrid();
         }
-
         private void ClientList_Click(object sender, RoutedEventArgs e)
         {
             what = "clients";
             ListName.Content = "List of " + what;
             SetDataGrid();
         }
-
         private void RentList_Click(object sender, RoutedEventArgs e)
         {
             what = "rents";
             ListName.Content = "List of " + what;
             SetDataGrid();
-
         }
 
+        //user change password
+        private void ChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new UserWindow("Edit", me);
+            window.ShowDialog();
+        }
+
+        //ukrycie wszystkich datagridow
         private void SetDataGrid()
         {
+            Users_DataGrid.Visibility = Visibility.Hidden;
+            Vehicles_DataGrid.Visibility = Visibility.Hidden;
+            Clients_DataGrid.Visibility = Visibility.Hidden;
+            Rents_DataGrid.Visibility = Visibility.Hidden;
+
             switch (what)
             {
                 case "users":
                     var l1 = new DB().GetUsers();
                     var resoult1 = from s in l1 select s;
 
-                    DataGrid.ItemsSource = new ObservableCollection<User>(resoult1.ToList());
+                    Users_DataGrid.ItemsSource = new ObservableCollection<User>(resoult1.ToList());
+                    Users_DataGrid.Visibility = Visibility.Visible;
                     break;
                 case "vehicles":
                     var l2 = new DB().GetVehicles();
                     var resoult2 = from s in l2 select s;
 
-                    DataGrid.ItemsSource = new ObservableCollection<Vehicle>(resoult2.ToList());
+                    Vehicles_DataGrid.ItemsSource = new ObservableCollection<Vehicle>(resoult2.ToList());
+                    Vehicles_DataGrid.Visibility = Visibility.Visible;
                     break;
                 case "clients":
                     var l3 = new DB().GetClients();
                     var resoult3 = from s in l3 select s;
 
-                    DataGrid.ItemsSource = new ObservableCollection<Client>(resoult3.ToList());
+                    Clients_DataGrid.ItemsSource = new ObservableCollection<Client>(resoult3.ToList());
+                    Clients_DataGrid.Visibility = Visibility.Visible;
                     break;
                 case "rents":
                     var l4 = new DB().GetRents();
                     var resoult4 = from s in l4 select s;
 
-                    DataGrid.ItemsSource = new ObservableCollection<Rent>(resoult4.ToList());
-                    break;
-                default:
-
+                    Rents_DataGrid.ItemsSource = new ObservableCollection<Rent>(resoult4.ToList());
+                    Rents_DataGrid.Visibility = Visibility.Visible;
                     break;
             }
         }
+        
 
-        private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        //usuwanie
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            //for (int i = DataGrid.SelectedItems.Count - 1; -1 < i; i = DataGrid.SelectedItems.Count - 1)
+            //{
+
+            //    Student tmp = (Student)DataGrid.SelectedItems[i];
+
+            //    new DB().DeleteStudent_Subject(tmp.IdStudent);
+            //    new DB().DeleteStudent(tmp);
+            //}
+
             switch (what)
             {
                 case "users":
-                    var tmp1 = (User)DataGrid.SelectedItem;
-                    var window1 = new UserWindow("Edit",tmp1);
-                    window1.ShowDialog();
+
                     break;
                 case "vehicles":
-                    var tmp2 = (Vehicle)DataGrid.SelectedItem;
-                    var window2 = new VehicleWindow("Edit", tmp2);
-                    window2.ShowDialog();
+                    
                     break;
                 case "clients":
-                    var tmp3 = (Client)DataGrid.SelectedItem;
-                    var window3 = new ClientWindow("Edit", tmp3);
-                    window3.ShowDialog();
+                    
                     break;
                 case "rents":
-                    var tmp4 = (Rent)DataGrid.SelectedItem;
-                    var window4 = new RentWindow("Edit", tmp4);
-                    window4.ShowDialog();
+                    
                     break;
             }
-            SetDataGrid();
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        //count ile zaznoczonych wierszy
+        private void Users_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int n = DataGrid.SelectedItems.Count;
-            Count.Content = "You choose " + n + " what";
+            int n = Users_DataGrid.SelectedItems.Count;
+            Count.Content = "You choose " + n + " users";
         }
-
-        private void Delete_Click(object sender, RoutedEventArgs e)
+        private void Vehicles_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            int n = Vehicles_DataGrid.SelectedItems.Count;
+            Count.Content = "You choose " + n + " vehicles";
         }
+        private void Clients_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int n = Clients_DataGrid.SelectedItems.Count;
+            Count.Content = "You choose " + n + " clients";
+        }
+        private void Rents_DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int n = Rents_DataGrid.SelectedItems.Count;
+            Count.Content = "You choose " + n + " rents";
+        }
+        
+
+        //double click edycja
+        private void Clients_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var tmp = (Client)Clients_DataGrid.SelectedItem;
+            var window = new ClientWindow("Edit", tmp);
+            window.ShowDialog();
+        }
+        private void Vehicles_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var tmp = (Vehicle)Vehicles_DataGrid.SelectedItem;
+            var window = new VehicleWindow("Edit", tmp);
+            window.ShowDialog();
+        }
+        private void Rents_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var tmp = (Rent)Rents_DataGrid.SelectedItems;
+            var window = new RentWindow("edit", tmp);
+            window.ShowDialog();
+        }
+        
+        
     }
-
 }

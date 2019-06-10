@@ -12,8 +12,8 @@ CREATE TABLE [project].[Client] (
     Cid int   NOT NULL IDENTITY,
     FirstName varchar(20)  NOT NULL,
     LastName varchar(20)  NOT NULL,
-    PESEL int  NOT NULL,
-    PhoneNumber int  NOT NULL,
+    PESEL varchar(11)  NOT NULL,
+    PhoneNumber varchar(9)  NOT NULL,
     Address varchar(20)  NOT NULL,
     CONSTRAINT Client_pk PRIMARY KEY  (Cid)
 );
@@ -128,6 +128,7 @@ INSERT INTO [project].[Type] values ('Kamper');
 INSERT INTO [project].[Type] values ('Autobus');
 
 
+INSERT INTO[project].[Vehicle] values('12345678901234560',1,'Q','Q','Q',2000,1,2000,2000,'nie');
 --select * from [project].[UserStatus];
 --select * from [project].[User] where Pass like 'admin'
 

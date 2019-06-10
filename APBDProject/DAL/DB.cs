@@ -19,19 +19,9 @@ namespace APBDProject.DAL
 
         public bool CheckUserData(string login, string pass)
         {
-            var r = carRental.User.Where(u => u.Login.Equals(login)  && u.Pass.Equals(pass)).ToList().Count;
-
-            if (r == 1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return carRental.User.Where(u => u.Login.Equals(login) && u.Pass.Equals(pass)).Any();
         }
 
-        
         public void AddUser(User user)
         {
             carRental.User.Add(user);

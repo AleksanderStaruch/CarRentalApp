@@ -26,9 +26,13 @@ namespace APBDProject.Model
         [StringLength(20)]
         public string LastName { get; set; }
 
-        public int PESEL { get; set; }
+        [Required]
+        [StringLength(11)]
+        public string PESEL { get; set; }
 
-        public int PhoneNumber { get; set; }
+        [Required]
+        [StringLength(9)]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(20)]

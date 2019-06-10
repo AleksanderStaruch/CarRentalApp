@@ -8,7 +8,7 @@ namespace APBDProject.Model
     public partial class CarRentalDb : DbContext
     {
         public CarRentalDb()
-            : base("name=CarRentalDb2")
+            : base("name=CarRentalDb")
         {
         }
 
@@ -28,6 +28,14 @@ namespace APBDProject.Model
 
             modelBuilder.Entity<Client>()
                 .Property(e => e.LastName)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Client>()
+                .Property(e => e.PESEL)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Client>()
+                .Property(e => e.PhoneNumber)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Client>()

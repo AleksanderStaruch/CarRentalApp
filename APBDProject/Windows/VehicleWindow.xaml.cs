@@ -24,14 +24,30 @@ namespace APBDProject.Windows
     {
 
         Vehicle vehicle;
+        string text;
         public VehicleWindow(string text, Vehicle vehicle)
         {
             InitializeComponent();
+
             Text.Content = text;
             this.vehicle = vehicle;
+            this.text = text;
 
             SetComboBox1();
             SetComboBox2();
+
+            if (text == "Edit")
+            {
+                Text1.Text=vehicle.VIN;
+                ComboBox1.Text=GetTypeName(vehicle.Type_Id);
+                Text2.Text=vehicle.Brand;
+                Text3.Text=vehicle.Model;
+                Text4.Text=vehicle.Color;
+                Text5.Text = vehicle.MakeYear+"";
+                ComboBox2.Text= GetFeulTypeName(vehicle.FeulType_Id);
+                Text6.Text = vehicle.PriceByDay + "";
+                Text7.Text = vehicle.Mileage + "";
+            }
         }
 
         private bool Check()
@@ -141,6 +157,16 @@ namespace APBDProject.Windows
             return Convert.ToInt32(id);
         }
 
+        private string GetTypeName(int n)
+        {
+            var list = new DB().GetTypes();
+
+            var r = (from s in list
+                     where s.Tid == n
+                     select s.Name).First();
+
+            return r;
+        }
 
         private void SetComboBox2()
         {
@@ -164,6 +190,16 @@ namespace APBDProject.Windows
             return Convert.ToInt32(id);
         }
 
+        private string GetFeulTypeName(int n)
+        {
+            var list = new DB().GetFeulTypes();
+
+            var r = (from s in list
+                     where s.Fid == n
+                     select s.Feul).First();
+
+            return r;
+        }
 
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
@@ -172,7 +208,7 @@ namespace APBDProject.Windows
                 Int64.TryParse(Text5.Text, out var n1);
                 Int64.TryParse(Text6.Text, out var n2);
                 Int64.TryParse(Text7.Text, out var n3);
-                MessageBox.Show(n1+"");
+
                 vehicle.VIN=Text1.Text;
                 vehicle.Type_Id = GetTypeId();
                 vehicle.Brand = Text2.Text;
@@ -182,13 +218,22 @@ namespace APBDProject.Windows
                 vehicle.FeulType_Id = GetFeulTypesId();
                 vehicle.PriceByDay = (int)n2;
                 vehicle.Mileage = (int)n3;
-                vehicle.IfRent="nie";
+                
 
                 DB db = new DB();
-                db.AddVehicle(vehicle);
+                if (text == "Edit")
+                {
+                    db.EditVehicle(vehicle);
+                }
+                else
+                {
+                    vehicle.IfRent="nie";
+                    db.AddVehicle(vehicle);
+                }
                 
                 Close();
             }
         }
+
     }
 }

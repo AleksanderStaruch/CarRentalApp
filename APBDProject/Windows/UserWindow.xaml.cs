@@ -22,12 +22,24 @@ namespace APBDProject.Windows
     public partial class UserWindow : Window
     {
         User user;
+        string text;
         public UserWindow(string text, User user)
         {
             InitializeComponent();
             Text.Content = text;
             this.user = user;
+            this.text = text;
             SetComboBox();
+
+            if (text == "Edit")
+            {
+                Login.Text=user.Login;
+                ComboBox.Text = GetUserStstusName(user.UserStatus_Id);
+
+                Login.IsEnabled = false;
+                ComboBox.IsEnabled = false;
+            }
+
         }
 
         private void SetComboBox()
@@ -41,7 +53,6 @@ namespace APBDProject.Windows
             ComboBox.SelectedItem = list[0].Status;
         }
 
-
         private int GetUserStatusId()
         {
             var list = new DB().GetUserStatuses();
@@ -54,6 +65,16 @@ namespace APBDProject.Windows
             return Convert.ToInt32(id);
         }
 
+        private string GetUserStstusName(int n)
+        {
+            var list = new DB().GetUserStatuses();
+
+            var r = (from s in list
+                     where s.USid == n
+                     select s.Status).First();
+
+            return r;
+        }
 
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
@@ -63,7 +84,15 @@ namespace APBDProject.Windows
                 user.Pass = Pass.Password.ToString();
                 user.UserStatus_Id = GetUserStatusId();
                 DB db = new DB();
-                db.AddUser(user);
+                if(text == "Edit")
+                {
+                    db.EditUser(user);
+                }
+                else
+                {
+                    db.AddUser(user);
+                }
+                
                 
                 Close();
             }
@@ -72,12 +101,6 @@ namespace APBDProject.Windows
                 MessageBox.Show("Password != ConfirmPassword", "Error", MessageBoxButton.OK);
             }
         }
-
-
-
-
-
-
 
     }
 }

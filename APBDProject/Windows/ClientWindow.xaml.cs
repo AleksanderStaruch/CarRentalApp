@@ -22,11 +22,22 @@ namespace APBDProject.Windows
     public partial class ClientWindow : Window
     {
         Client client;
+        string text;
         public ClientWindow( string text, Client client)
         {
             InitializeComponent();
             Text.Content = text;
             this.client = client;
+            this.text = text;
+            if (text == "Edit")
+            {
+                Text1.Text=client.FirstName;
+                Text2.Text=client.LastName;
+                Text3.Text=client.PESEL;
+                Text4.Text=client.PhoneNumber;
+                Text5.Text=client.Address;
+            }
+            
         }
 
         private bool Check()
@@ -52,7 +63,7 @@ namespace APBDProject.Windows
                 Text2.BorderBrush = new SolidColorBrush(Colors.Black);
             }
 
-            if (Text3.Text.Length == 11 && Int32.TryParse(Text3.Text, out int a))
+            if (Text3.Text.Length == 11 && Int64.TryParse(Text3.Text, out var a))
             {
                 Text3.BorderBrush = new SolidColorBrush(Colors.Black);
             }
@@ -62,7 +73,7 @@ namespace APBDProject.Windows
                 Text3.BorderBrush = new SolidColorBrush(Colors.Red);
             }
 
-            if (Text4.Text.Length == 9 && Int32.TryParse(Text4.Text, out int b))
+            if (Text4.Text.Length == 9 && Int64.TryParse(Text4.Text, out var b))
             {
                 Text4.BorderBrush = new SolidColorBrush(Colors.Black);
             }
@@ -97,16 +108,22 @@ namespace APBDProject.Windows
         {
             if (Check())
             {
-                Int32.TryParse(Text3.Text, out int n1);
-                Int32.TryParse(Text4.Text, out int n2);
                 client.FirstName = Text1.Text;
                 client.LastName = Text2.Text;
-                client.PESEL = n1;
-                client.PhoneNumber = n2;
+                client.PESEL = Text3.Text;
+                client.PhoneNumber = Text4.Text;
                 client.Address = Text5.Text;
 
                 DB db = new DB();
-                db.AddClient(client);
+                if(text == "Edit")
+                {
+                    db.EditClient(client);
+                }
+                else
+                {
+                    db.AddClient(client);
+                }
+                
 
                 Close();
             }
