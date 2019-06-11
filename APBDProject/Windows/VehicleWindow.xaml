@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APBDProject.Windows"
         mc:Ignorable="d"
-        Title="VehicleWindow" Height="450" Width="400">
+        Title="Vehicle window" Height="450" Width="400" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APBDProject.Windows"
         mc:Ignorable="d"
-        Title="Rent Window" Height="200" Width="800">
+        Title="Rent window" Height="200" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

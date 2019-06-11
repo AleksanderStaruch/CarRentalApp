@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APBDProject.Windows"
         mc:Ignorable="d"
-        Title="ReturnWindow" Height="200" Width="800">
+        Title="Return window" Height="200" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -26,9 +26,9 @@
         <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Vehicle:</Label>
         <Label Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Cost:</Label>
 
-        <Label x:Name="client" Grid.Column="1" Grid.Row="1" BorderBrush="Black"  Margin="5" ></Label>
-        <Label x:Name="vehicle" Grid.Column="1" Grid.Row="2" BorderBrush="Black" Margin="5" ></Label>
-        <Label x:Name="cost" Grid.Column="1" Grid.Row="3" BorderBrush="Black" Margin="5" ></Label>
+        <Label x:Name="client" Grid.Column="1" Grid.Row="1" BorderBrush="Black"  ></Label>
+        <Label x:Name="vehicle" Grid.Column="1" Grid.Row="2" BorderBrush="Black" ></Label>
+        <Label x:Name="cost" Grid.Column="1" Grid.Row="3" BorderBrush="Black" ></Label>
 
         <Button x:Name="Pay" Grid.Column="1" Grid.Row="5" Margin="5" Padding="30 0 30 0" Click="Pay_Click" >Pay</Button>
     </Grid>

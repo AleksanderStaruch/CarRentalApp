@@ -82,7 +82,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="*" Header="User" Binding="{Binding User.Login}"/>
                     <DataGridTextColumn Width="2*" Header="FirstName LastName Pesel" Binding="{Binding Client}"/>
-                    <DataGridTextColumn Width="2*" Header="Type Brand Model Color PriceByDay" Binding="{Binding Vehicle}"/>
+                    <DataGridTextColumn Width="2*" Header="Type Brand Color PriceByDay" Binding="{Binding Vehicle}"/>
                     <DataGridTextColumn Width="*" Header="Date Of Rental" Binding="{Binding DateOfRental}"/>
                     <DataGridTextColumn Width="*" Header="Date Of Return" Binding="{Binding DateOfReturn}"/>
                 </DataGrid.Columns>

@@ -30,13 +30,19 @@ namespace APBDProject.Windows
 
             client.Content=rent.Client;
             vehicle.Content =rent.Vehicle;
-            var r = (DateTime.Today - rent.DateOfRental).Days;
+            int r;
+            if (rent.DateOfReturn!=null)
+            {
+                r = (rent.DateOfReturn - rent.DateOfRental).Value.Days;
+                Pay.IsEnabled = false;
+            }
+            else
+            {
+                r = (DateTime.Today - rent.DateOfRental).Days;
+            }
+            
             payment = (r + 1) * rent.Vehicle.PriceByDay;
             cost.Content = payment;
-            
-
-
-
         }
 
         private void Pay_Click(object sender, RoutedEventArgs e)
@@ -53,9 +59,7 @@ namespace APBDProject.Windows
 
                 Close();
             }
-
-
-
         }
+
     }
 }
