@@ -54,5 +54,12 @@ namespace APBDProject.Model
         public virtual ICollection<Rent> Rent { get; set; }
 
         public virtual Type Type { get; set; }
+
+        public override string ToString()
+        {
+            return Type.Name + " " + Brand + " " + Model + " " + Color + " " + PriceByDay;
+        }
+
+
     }
 }

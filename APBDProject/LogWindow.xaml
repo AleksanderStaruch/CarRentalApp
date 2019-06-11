@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:APBDProject"
         mc:Ignorable="d"
         Title="Login window" Height="175" Width="320" ResizeMode="NoResize">
-    <Grid>
+    <Grid KeyDown="Log_KeyDown" >
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -28,7 +28,7 @@
         <TextBox x:Name="Login" Grid.Column="1" Grid.Row="1" BorderBrush="Black"  Margin="5" ></TextBox>
         <PasswordBox x:Name="Pass" Grid.Column="1" Grid.Row="2" BorderBrush="Black" Margin="5" ></PasswordBox>
 
-        <Button x:Name="Log" Grid.Column="1" Grid.Row="4" Margin="5" Padding="30 0 30 0" Click="Log_Click">Log In</Button>
+        <Button x:Name="Log" Grid.Column="1" Grid.Row="4" Margin="5" Padding="30 0 30 0" Click="Log_Click" >Log In</Button>
 
 
     </Grid>

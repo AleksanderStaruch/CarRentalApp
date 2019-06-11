@@ -53,6 +53,33 @@ namespace APBDProject
             }
         }
 
+        private void Log_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                var l = Login.Text;
+                var p = Pass.Password.ToString();
+
+                DB db = new DB();
+                if (db.CheckUserData(l, p))
+                {
+                    MainWindow window = new MainWindow(GetUser(l));
+                    window.Show();
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Bad login or password", "Error", MessageBoxButton.OK);
+                }
+            }
+
+            if (e.Key == Key.Down)
+            {
+                MessageBox.Show("AAAAA");
+                Pass.Focus();
+            }
+
+        }
 
     }
 }

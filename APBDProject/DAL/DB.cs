@@ -22,27 +22,25 @@ namespace APBDProject.DAL
             return carRental.User.Where(u => u.Login.Equals(login) && u.Pass.Equals(pass)).Any();
         }
 
+        //add
         public void AddUser(User user)
         {
             carRental.User.Add(user);
 
             carRental.SaveChanges();
         }
-
         public void AddVehicle(Vehicle vehicle)
         {
             carRental.Vehicle.Add(vehicle);
 
             carRental.SaveChanges();
         }
-
         public void AddClient(Client client)
         {
             carRental.Client.Add(client);
 
             carRental.SaveChanges();
         }
-
         public void AddRent(Rent rent)
         {
             carRental.Rent.Add(rent);
@@ -50,6 +48,7 @@ namespace APBDProject.DAL
             carRental.SaveChanges();
         }
 
+        //edit
         public void EditUser(User user)
         {
             var s = (from x in carRental.User
@@ -63,14 +62,12 @@ namespace APBDProject.DAL
 
             carRental.SaveChanges();
         }
-
         public void EditVehicle(Vehicle vehicle)
         {
             var s = (from x in carRental.Vehicle
                       where x.Vid == vehicle.Vid
                       select x).First();
-
-            s.Vid=vehicle.Vid;
+            
             s.VIN = vehicle.VIN;
             s.Type_Id = vehicle.Type_Id;
             s.Brand = vehicle.Brand;
@@ -84,7 +81,6 @@ namespace APBDProject.DAL
             
             carRental.SaveChanges();
         }
-
         public void EditClient(Client client)
         {
             var s = (from x in carRental.Client
@@ -100,7 +96,6 @@ namespace APBDProject.DAL
 
             carRental.SaveChanges();
         }
-
         public void EditRent(Rent rent)
         {
             var s = (from x in carRental.Rent
@@ -116,56 +111,76 @@ namespace APBDProject.DAL
 
             carRental.SaveChanges();
         }
-        
+
+        //delete
+        public void DeleteUser(User user)
+        {
+            carRental.User.Remove(carRental.User.Single(u => u.Uid == user.Uid));
+
+            carRental.SaveChanges();
+        }
+        public void DeleteVehicle(Vehicle vehicle)
+        {
+            carRental.Vehicle.Remove(carRental.Vehicle.Single(v => v.Vid == vehicle.Vid));
+
+            carRental.SaveChanges();
+        }
+        public void DeleteClient(Client client)
+        {
+            carRental.Client.Remove(carRental.Client.Single(c=> c.Cid == client.Cid));
+
+            carRental.SaveChanges();
+        }
+        public void DeleteRent(Rent rent)
+        {
+            carRental.Rent.Remove(carRental.Rent.Single(r => r.Rid == rent.Rid));
+
+            carRental.SaveChanges();
+        }
+
+
+        //get lists
         public List<UserStatus> GetUserStatuses()
         {
             var r = carRental.UserStatus.ToList();
 
             return r;
         }
-
         public List<User> GetUsers()
         {
             var r = carRental.User.ToList();
             return r;
         }
-
         public List<Type> GetTypes()
         {
             var r = carRental.Type.ToList();
 
             return r;
         }
-
         public List<FeulType> GetFeulTypes()
         {
             var r = carRental.FeulType.ToList();
 
             return r;
         }
-
         public List<Vehicle> GetVehicles()
         {
             var r = carRental.Vehicle.ToList();
 
             return r;
         }
-
         public List<Client> GetClients()
         {
             var r = carRental.Client.ToList();
 
             return r;
         }
-
         public List<Rent> GetRents()
         {
             var r = carRental.Rent.ToList();
 
             return r;
         }
-
-
 
     }
 }

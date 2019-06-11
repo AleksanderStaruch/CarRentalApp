@@ -60,8 +60,11 @@ namespace APBDProject
         private void AddRent_Click(object sender, RoutedEventArgs e)
         {
             var rent = new Rent();
-            var add = new RentWindow("Create new rent",rent);
+            var add = new RentWindow("Create new rent",rent,me);
             add.ShowDialog();
+
+            what = "rents";
+            SetDataGrid();
         }
 
 
@@ -70,24 +73,29 @@ namespace APBDProject
         {
             what = "users";
             ListName.Content = "List of " + what;
+            Count.Content = "You choose 0 users";
             SetDataGrid();
         }
         private void VehicleList_Click(object sender, RoutedEventArgs e)
         {
             what = "vehicles";
             ListName.Content = "List of " + what;
+            Count.Content = "You choose 0 vehicles";
+
             SetDataGrid();
         }
         private void ClientList_Click(object sender, RoutedEventArgs e)
         {
             what = "clients";
             ListName.Content = "List of " + what;
+            Count.Content = "You choose 0 clientss";
             SetDataGrid();
         }
         private void RentList_Click(object sender, RoutedEventArgs e)
         {
             what = "rents";
             ListName.Content = "List of " + what;
+            Count.Content = "You choose 0 rents";
             SetDataGrid();
         }
 
@@ -143,28 +151,35 @@ namespace APBDProject
         //usuwanie
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            //for (int i = DataGrid.SelectedItems.Count - 1; -1 < i; i = DataGrid.SelectedItems.Count - 1)
-            //{
-
-            //    Student tmp = (Student)DataGrid.SelectedItems[i];
-
-            //    new DB().DeleteStudent_Subject(tmp.IdStudent);
-            //    new DB().DeleteStudent(tmp);
-            //}
-
             switch (what)
             {
                 case "users":
-
+                    for (int i = Users_DataGrid.SelectedItems.Count - 1; -1 < i; i = Users_DataGrid.SelectedItems.Count - 1)
+                    {
+                        var tmp = (User)Users_DataGrid.SelectedItems[i];
+                        new DB().DeleteUser(tmp);
+                    }
                     break;
                 case "vehicles":
-                    
+                    for (int i = Vehicles_DataGrid.SelectedItems.Count - 1; -1 < i; i = Vehicles_DataGrid.SelectedItems.Count - 1)
+                    {
+                        var tmp = (Vehicle)Vehicles_DataGrid.SelectedItems[i];
+                        new DB().DeleteVehicle(tmp);
+                    }
                     break;
                 case "clients":
-                    
+                    for (int i = Clients_DataGrid.SelectedItems.Count - 1; -1 < i; i = Clients_DataGrid.SelectedItems.Count - 1)
+                    {
+                        var tmp = (Client)Clients_DataGrid.SelectedItems[i];
+                        new DB().DeleteClient(tmp);
+                    }
                     break;
                 case "rents":
-                    
+                    for (int i = Rents_DataGrid.SelectedItems.Count - 1; -1 < i; i = Rents_DataGrid.SelectedItems.Count - 1)
+                    {
+                        var tmp = (Rent)Rents_DataGrid.SelectedItems[i];
+                        new DB().DeleteRent(tmp);
+                    }
                     break;
             }
         }
@@ -199,18 +214,21 @@ namespace APBDProject
             var tmp = (Client)Clients_DataGrid.SelectedItem;
             var window = new ClientWindow("Edit", tmp);
             window.ShowDialog();
+            SetDataGrid();
         }
         private void Vehicles_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var tmp = (Vehicle)Vehicles_DataGrid.SelectedItem;
             var window = new VehicleWindow("Edit", tmp);
             window.ShowDialog();
+            SetDataGrid();
         }
         private void Rents_DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var tmp = (Rent)Rents_DataGrid.SelectedItems;
-            var window = new RentWindow("edit", tmp);
+            var tmp = (Rent)Rents_DataGrid.SelectedItem;
+            var window = new ReturnWindow(tmp);
             window.ShowDialog();
+            SetDataGrid();
         }
         
         
