@@ -29,11 +29,12 @@ namespace APBDProject
             Welcome.Content = "Welcome "+me.Login;
         }
 
+
         //add new 
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
             var user = new User();
-            var add = new UserWindow("Register",user);
+            var add = new UserWindow("Register",user,me);
             add.ShowDialog();
 
             what = "users";
@@ -99,12 +100,23 @@ namespace APBDProject
             SetDataGrid();
         }
 
+
         //user change password
         private void ChangePassword_Click(object sender, RoutedEventArgs e)
         {
-            var window = new UserWindow("Edit", me);
+            var window = new UserWindow("Edit", me,me);
             window.ShowDialog();
         }
+
+
+        //log out from app, change usser
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new LogWindow();
+            Close();
+            w.Show();
+        }
+
 
         //ukrycie wszystkich datagridow
         private void SetDataGrid()
@@ -230,7 +242,7 @@ namespace APBDProject
             window.ShowDialog();
             SetDataGrid();
         }
-        
+
         
     }
 }

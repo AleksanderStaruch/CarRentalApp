@@ -23,12 +23,14 @@ namespace APBDProject.Windows
     {
         User user;
         string text;
-        public UserWindow(string text, User user)
+        User me;
+        public UserWindow(string text, User user,User me)
         {
             InitializeComponent();
             Text.Content = text;
             this.user = user;
             this.text = text;
+            this.me = me;
             SetComboBox();
 
             if (text == "Edit")
@@ -48,9 +50,12 @@ namespace APBDProject.Windows
             ComboBox.Items.Clear();
             foreach (UserStatus s in list)
             {
-                ComboBox.Items.Add(s.Status);
+                if (me.UserStatus_Id<=s.USid)
+                {
+                    ComboBox.Items.Add(s.Status);
+                }
+                
             }
-            ComboBox.SelectedItem = list[0].Status;
         }
 
         private int GetUserStatusId()

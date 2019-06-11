@@ -25,6 +25,7 @@
             </MenuItem>
             <MenuItem Header="My profile">
                 <MenuItem x:Name="ChangePassword" Header="Change password" Click="ChangePassword_Click"/>
+                <MenuItem x:Name="LogOut" Header="LogOut" Click="LogOut_Click"/>
             </MenuItem>
         </Menu>
 
